@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'maven-publish'
 
 android {
     compileSdkVersion 30
@@ -23,6 +24,16 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+}
+
+project.afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+            }
+        }
     }
 }
 
