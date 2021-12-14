@@ -1,11 +1,11 @@
 package com.paulinasadowska.rxworkmanagerobservers.base
 
 import com.paulinasadowska.rxworkmanagerobservers.exceptions.LiveDataSubscribedOnWrongThreadException
-import io.reactivex.Observable
-import io.reactivex.Observer
-import io.reactivex.disposables.Disposables
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.core.Observer
+import io.reactivex.rxjava3.disposables.Disposable
 
-abstract class MainThreadObservable<T> : Observable<T>() {
+abstract class MainThreadObservable<T : Any> : Observable<T>() {
 
     override fun subscribeActual(observer: Observer<in T>) {
         if (isOnMainThread()) {
@@ -18,7 +18,7 @@ abstract class MainThreadObservable<T> : Observable<T>() {
     abstract fun onSubscribeOnMainThread(observer: Observer<in T>)
 
     private fun Observer<*>.subscribeAndCallWrongThreadError() {
-        onSubscribe(Disposables.empty())
+        onSubscribe(Disposable.empty())
         onError(LiveDataSubscribedOnWrongThreadException())
     }
 }

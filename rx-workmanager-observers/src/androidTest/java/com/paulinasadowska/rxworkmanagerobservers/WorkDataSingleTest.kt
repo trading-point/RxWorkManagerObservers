@@ -15,7 +15,7 @@ import com.paulinasadowska.rxworkmanagerobservers.utils.initializeTestWorkManage
 import com.paulinasadowska.rxworkmanagerobservers.workers.EchoWorker
 import com.paulinasadowska.rxworkmanagerobservers.workers.EchoWorker.Companion.KEY_ECHO_MESSAGE
 import com.paulinasadowska.rxworkmanagerobservers.workers.EmptyWorker
-import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith

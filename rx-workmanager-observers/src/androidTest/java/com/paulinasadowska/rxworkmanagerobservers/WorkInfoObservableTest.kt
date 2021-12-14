@@ -9,7 +9,7 @@ import com.paulinasadowska.rxworkmanagerobservers.utils.DEFAULT_DELAY
 import com.paulinasadowska.rxworkmanagerobservers.utils.createEchoRequest
 import com.paulinasadowska.rxworkmanagerobservers.utils.initializeTestWorkManager
 import com.paulinasadowska.rxworkmanagerobservers.workers.EchoWorker.Companion.KEY_ECHO_MESSAGE
-import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import junit.framework.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test

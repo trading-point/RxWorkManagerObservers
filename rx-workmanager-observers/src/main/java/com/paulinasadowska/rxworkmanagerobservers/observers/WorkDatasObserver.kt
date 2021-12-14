@@ -7,7 +7,7 @@ import com.paulinasadowska.rxworkmanagerobservers.exceptions.WorkCancelledExcept
 import com.paulinasadowska.rxworkmanagerobservers.exceptions.WorkException
 import com.paulinasadowska.rxworkmanagerobservers.exceptions.WorkFailedException
 import com.paulinasadowska.rxworkmanagerobservers.observers.base.WorkInfosLiveDataObserver
-import io.reactivex.Observer
+import io.reactivex.rxjava3.core.Observer
 import java.util.*
 
 internal class WorkDatasObserver(
