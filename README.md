@@ -1,4 +1,4 @@
-# RxWorkManagerObservers
+# An RxJava3 fork of [RxWorkManagerObservers](https://github.com/PaulinaSadowska/RxWorkManagerObservers)
 
 This library contains a set of extension functions to the WorkManager and LiveData allowing to observe enqueued work in a reactive manner.
 
