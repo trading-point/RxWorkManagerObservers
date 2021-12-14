@@ -1,5 +1,6 @@
 package com.paulinasadowska.rxworkmanagerobservers
 
+import androidx.test.core.app.ApplicationProvider.getApplicationContext
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.work.WorkManager
 import androidx.work.WorkRequest
@@ -31,7 +32,7 @@ class WorkDatasObservableTest {
         private const val REQUEST_TAG = "requestTag"
     }
 
-    private val workManager by lazy { WorkManager.getInstance() }
+    private val workManager by lazy { WorkManager.getInstance(getApplicationContext()) }
 
     @Before
     fun setUp() {
