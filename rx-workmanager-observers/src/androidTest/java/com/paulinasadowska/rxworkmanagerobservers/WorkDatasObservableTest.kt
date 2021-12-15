@@ -1,5 +1,6 @@
 package com.paulinasadowska.rxworkmanagerobservers
 
+import androidx.test.core.app.ApplicationProvider.getApplicationContext
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.work.WorkManager
 import androidx.work.WorkRequest
@@ -11,7 +12,7 @@ import com.paulinasadowska.rxworkmanagerobservers.utils.DEFAULT_DELAY_LONG
 import com.paulinasadowska.rxworkmanagerobservers.utils.createEchoRequest
 import com.paulinasadowska.rxworkmanagerobservers.utils.initializeTestWorkManager
 import com.paulinasadowska.rxworkmanagerobservers.workers.EchoWorker.Companion.KEY_ECHO_MESSAGE
-import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers
 import org.hamcrest.Matchers.emptyIterable
@@ -31,7 +32,7 @@ class WorkDatasObservableTest {
         private const val REQUEST_TAG = "requestTag"
     }
 
-    private val workManager by lazy { WorkManager.getInstance() }
+    private val workManager by lazy { WorkManager.getInstance(getApplicationContext()) }
 
     @Before
     fun setUp() {

@@ -5,7 +5,7 @@ import androidx.work.Data
 import androidx.work.WorkInfo
 import com.paulinasadowska.rxworkmanagerobservers.base.MainThreadObservable
 import com.paulinasadowska.rxworkmanagerobservers.observers.WorkDatasObserver
-import io.reactivex.Observer
+import io.reactivex.rxjava3.core.Observer
 
 class WorkDatasObservable(
         private val liveData: LiveData<List<WorkInfo>>,

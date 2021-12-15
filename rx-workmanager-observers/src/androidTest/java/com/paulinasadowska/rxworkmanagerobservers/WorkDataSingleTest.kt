@@ -1,5 +1,6 @@
 package com.paulinasadowska.rxworkmanagerobservers
 
+import androidx.test.core.app.ApplicationProvider.getApplicationContext
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.work.OneTimeWorkRequest
 import androidx.work.OneTimeWorkRequestBuilder
@@ -8,14 +9,13 @@ import androidx.work.testing.WorkManagerTestInitHelper
 import androidx.work.workDataOf
 import com.paulinasadowska.rxworkmanagerobservers.exceptions.WorkFailedException
 import com.paulinasadowska.rxworkmanagerobservers.extensions.getWorkDataByIdSingle
-import com.paulinasadowska.rxworkmanagerobservers.extensions.toWorkDataSingle
 import com.paulinasadowska.rxworkmanagerobservers.utils.DEFAULT_DELAY
 import com.paulinasadowska.rxworkmanagerobservers.utils.createEchoRequest
 import com.paulinasadowska.rxworkmanagerobservers.utils.initializeTestWorkManager
 import com.paulinasadowska.rxworkmanagerobservers.workers.EchoWorker
 import com.paulinasadowska.rxworkmanagerobservers.workers.EchoWorker.Companion.KEY_ECHO_MESSAGE
 import com.paulinasadowska.rxworkmanagerobservers.workers.EmptyWorker
-import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -29,7 +29,7 @@ class WorkDataSingleTest {
         private const val EXAMPLE_ECHO_MESSAGE = "some message"
     }
 
-    private val workManager by lazy { WorkManager.getInstance() }
+    private val workManager by lazy { WorkManager.getInstance(getApplicationContext()) }
 
     @Before
     fun setUp() {
@@ -80,7 +80,7 @@ class WorkDataSingleTest {
                         .setInitialDelay(10, TimeUnit.DAYS)
                         .build()
 
-        val testDriver = WorkManagerTestInitHelper.getTestDriver()
+        val testDriver = WorkManagerTestInitHelper.getTestDriver(getApplicationContext())
 
         //when
         workManager.enqueue(request)
@@ -92,7 +92,7 @@ class WorkDataSingleTest {
         sleep(DEFAULT_DELAY)
 
         workSingle.assertNoValues()
-        testDriver.setInitialDelayMet(request.id)
+        testDriver?.setInitialDelayMet(request.id)
 
         sleep(DEFAULT_DELAY)
 

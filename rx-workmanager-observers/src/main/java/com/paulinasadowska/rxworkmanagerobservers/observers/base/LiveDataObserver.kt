@@ -2,7 +2,7 @@ package com.paulinasadowska.rxworkmanagerobservers.observers.base
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
-import io.reactivex.android.MainThreadDisposable
+import io.reactivex.rxjava3.android.MainThreadDisposable
 
 internal abstract class LiveDataObserver<T>(
         private val liveData: LiveData<T>

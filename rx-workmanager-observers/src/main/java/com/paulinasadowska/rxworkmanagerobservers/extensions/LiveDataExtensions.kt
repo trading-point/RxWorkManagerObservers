@@ -7,8 +7,8 @@ import androidx.work.WorkInfo
 import com.paulinasadowska.rxworkmanagerobservers.WorkDataSingle
 import com.paulinasadowska.rxworkmanagerobservers.WorkDatasObservable
 import com.paulinasadowska.rxworkmanagerobservers.WorkInfoObservable
-import io.reactivex.Observable
-import io.reactivex.Single
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.core.Single
 
 fun LiveData<WorkInfo>.toWorkDataSingle(): Single<Data> {
     return WorkDataSingle(this)
