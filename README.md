@@ -1,6 +1,6 @@
-# An RxJava3 fork of [RxWorkManagerObservers](https://github.com/PaulinaSadowska/RxWorkManagerObservers)
+# An RxJava 3 fork of [RxWorkManagerObservers](https://github.com/PaulinaSadowska/RxWorkManagerObservers)
 
-This library contains a set of extension functions to the WorkManager and LiveData allowing to observe enqueued work in a reactive manner.
+This library contains a set of extension functions to the `WorkManager` and `LiveData` allowing to observe enqueued work in a reactive manner.
 
 ## Download
 
@@ -15,11 +15,9 @@ allprojects {
  
 ```gradle
 dependencies {
-      implementation 'com.github.PaulinaSadowska:RxWorkManagerObservers:1.0.0'
+      implementation 'com.github.trading-point:RxWorkManagerObservers:3.0.0'
 }
 ```
-
-The library does not depend on work-rxjava2. It works with any type of worker that can be enqueued by the WorkManager.
 
 ## WorkManager extensions
 
@@ -78,17 +76,16 @@ WorkManager.getInstance().getWorkInfosForUniqueWorkLiveData(WORK_NAME)
 ```
 
 ## Threading
-The Observable returned from each function from this library **have to be subscribed on the main thread** (because there is ``LiveData.observeForever`` called under the hood). The actual work, will still be executed on the background thread specified by the WorkManager.
+The `Observable` returned from each function from this library **have to be subscribed on the main thread** (because there is ``LiveData.observeForever`` called under the hood). The actual work, will still be executed on the background thread specified by the `WorkManager`.
 
 ## More info
-More about this library and the WorkManager you can read in my article: 
-
+More about this library and the `WorkManager` you can read in [PaulinaSadowska's](https://github.com/PaulinaSadowska) article: 
 [How to use WorkManager with RxJava](https://proandroiddev.com/how-to-use-workmanager-with-rxjava-b5936f68e024)
 
 
 ## License
 ```
-Copyright 2019 Paulina Sadowska
+Copyright 2021 Trading Point LTD
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
